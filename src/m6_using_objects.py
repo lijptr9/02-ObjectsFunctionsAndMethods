@@ -5,8 +5,8 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ji Li.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -14,6 +14,9 @@ import rosegraphics as rg
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
+    two_circles()
+    circle_and_rectangle(100,200,50,100,150,300,50)
+    lines(10,10,100,300,200,10,10,100)
 
 
 def two_circles():
@@ -26,8 +29,24 @@ def two_circles():
            -- One is filled with some color and one is not filled.
     -- Waits for the user to press the mouse, then closes the window.
     """
+    window = rg.RoseWindow()
+
+    ca = rg.Point(80, 100)
+    cb = rg.Point(200, 200)
+    ra = 50
+    rb = 100
+
+    circle1 = rg.Circle(ca, ra)
+    circle2 = rg.Circle(cb, rb)
+    circle2.fill_color = 'blue'
+    circle1.attach_to(window)
+    circle2.attach_to(window)
+
+    window.render()
+    window.close_on_mouse_click()
+
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its doc-string above.
+    # DONE: 2. Implement this function, per its doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.txt  lists all legal color-names.
     # Put a statement in   main   to test this function
@@ -35,7 +54,7 @@ def two_circles():
     # -------------------------------------------------------------------------
 
 
-def circle_and_rectangle():
+def circle_and_rectangle(x1, y1, a1, b1, a2, b2, radius):
     """
     -- Constructs an rg.RoseWindow.
     -- Constructs and draws a rg.Circle and rg.Rectangle
@@ -66,8 +85,45 @@ def circle_and_rectangle():
            75.0
            150.0
     """
+    window = rg.RoseWindow()
+
+    color = 'blue'
+    centerc = rg.Point(x1, y1)
+    circle = rg.Circle(centerc,radius)
+    circle.fill_color = color
+
+    p1 = rg.Point(a1, b1)
+    p2 = rg.Point(a2, b2)
+    rtg = rg.Rectangle(p1, p2)
+
+    circle.attach_to(window)
+    rtg.attach_to(window)
+
+
+    print(circle.outline_thickness)
+    print(circle.fill_color)
+    print(circle.center)
+    print(centerc.x)
+    print(centerc.y)
+    print(rtg.outline_thickness)
+    print(rtg.fill_color)
+    print(rtg.corner_2)
+    print(p2.x)
+    print(p2.y)
+
+    window.render()
+    window.close_on_mouse_click()
+
+
+
+
+
+
+    circle = rg.Circle
+
+
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its doc-string above.
+    # DONE: 3. Implement this function, per its doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -77,7 +133,7 @@ def circle_and_rectangle():
     # -------------------------------------------------------------------------
 
 
-def lines():
+def lines(x1, y1, x2, y2, xa, ya, xb, yb):
     """
     -- Constructs a rg.RoseWindow.
     -- Constructs and draws on the window two rg.Lines such that:
@@ -99,8 +155,33 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
+    window = rg.RoseWindow()
+
+    P1 = rg.Point(x1, y1)
+    P2 = rg.Point(x2, y2)
+    L1 = rg.Line(P1, P2)
+    L1.attach_to(window)
+
+    Pa = rg.Point(xa, ya)
+    Pb = rg.Point(xb, yb)
+    L2 = rg.Line(Pa, Pb)
+    L2.color = 'pink'
+    L2.thickness = 5
+    L2.attach_to(window)
+
+    mp = L2.get_midpoint()
+
+    print(L2.get_midpoint())
+    print(mp.x)
+    print(mp.y)
+
+    window.render()
+    window.close_on_mouse_click()
+
+
+
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     # -------------------------------------------------------------------------
 
 
