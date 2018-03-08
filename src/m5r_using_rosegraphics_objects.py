@@ -59,7 +59,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 #            The method is to draw all methods attached to one window.
 #
 #     g. When is a RoseWindow close_on_mouse_click method call necessary?  Why?
-#            It is important. Beacause the program will just flash to an end if we don't have the command.
+#            It is important when there are multiple different functions. Beacause the program will just flash to an end if we don't have the command.
 #
 #   ASK QUESTIONS ** NOW ** if you do not understand how the
 #     RoseGraphics graphics system works.
